@@ -24,7 +24,6 @@ export const routes: Routes = [
 
   {
     path: '', component: AuthLayoutComponent ,children: [
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'login', component: LoginComponent, title: 'Login Page'},
       {path: 'register', component: RegisterComponent, title: 'Register Page'},
       {path: 'forget', component: ForgetPassComponent, title: 'Reset Password Page'}
