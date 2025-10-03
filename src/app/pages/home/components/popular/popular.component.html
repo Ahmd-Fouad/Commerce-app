@@ -1,0 +1,8 @@
+<section class="max-w-screen-xl mx-auto px-4 mt-3">
+  <h2 class="text-cyan-600 font-semibold text-2xl mb-5  rounded shadow py-1 px-3">Popular Products</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    @for (product of allProducts.slice(20, 40).reverse(); track product._id) {
+    <app-card [product]="product" />
+    }
+  </div>
+</section>

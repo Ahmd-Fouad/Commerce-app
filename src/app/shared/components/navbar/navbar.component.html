@@ -1,0 +1,102 @@
+<nav class="bg-gray-200 text-cyan-900 ">
+  <div class="max-w-screen-xl mx-auto p-4 flex flex-wrap items-center justify-between ">
+    <img src="/images/freshcart-logo.svg" class="block w-30 sm:w-40 cursor-pointer" alt="logo" routerLink="/home">
+
+
+    <div class="flex space-x-2 md:space-x-4 lg:space-x-5 items-baseline ms-auto me-2 md:m-0 md:order-5">
+      <div class="links  sm:space-x-1 lg:space-x-2 flex items-center">
+        <div class="hidden sm:flex space-x-1">
+          <i
+            class="fa-brands hidden hover:text-cyan-600 transition-all duration-300 cursor-pointer lg:text-lg fa-facebook"></i>
+          <i
+            class="fa-brands hover:text-cyan-600 transition-all duration-300 cursor-pointer md:text-sm lg:text-lg sm:text-lg fa-instagram"></i>
+          <i
+            class="fa-brands hover:text-cyan-600 transition-all duration-300 cursor-pointer md:text-sm lg:text-lg sm:text-lg fab fa-twitter"></i>
+          <i
+            class="fa-brands hover:text-cyan-600 transition-all duration-300 cursor-pointer md:text-sm lg:text-lg sm:text-lg fab fab fa-linkedin-in"></i>
+          <i
+            class="fa-brands hover:text-cyan-600 transition-all duration-300 cursor-pointer md:text-sm lg:text-lg sm:text-lg fab fab fab fa-youtube"></i>
+        </div>
+
+        @if (isLoged) {
+        <i
+          routerLink="/cart"
+          class="fa-brands hover:text-cyan-600 transition-all duration-300 cursor-pointer ms-1 text-xl lg:text-3xl fab fab fas fa-cart-arrow-down"></i>
+        }
+
+      </div>
+      @if (isLoged) {
+      <button (click)="signOut()"
+        class="hover:text-cyan-600 hover:scale-110 transition-all duration-300 cursor-pointer font-semibold lg:text-xl">Logout</button>
+      }
+
+    </div>
+
+
+    <button data-collapse-toggle="navbar-default" type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-200 cursor-pointer "
+      aria-controls="navbar-default" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+
+
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+
+      @if (isLoged) {
+      <ul
+        class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-gray-200 md:flex-row md:space-x-3 lg:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0">
+        <li>
+          <a routerLinkActive="active-link" routerLink="/home"
+            class="block py-2 px-3 lg:text-lg lg:font-semibold  rounded-sm md:bg-transparent text-cyan-900 hover:text-white md:text-cyan-900 md:hover:text-cyan-600 md:hover:scale-110 hover:bg-cyan-700 md:hover:bg-transparent mb-1 md:m-0 md:p-0 border-b border-white md:border-0"
+            aria-current="page">Home</a>
+        </li>
+        <li>
+          <a routerLinkActive="active-link" routerLink="/cart"
+            class="block py-2 px-3 lg:text-lg lg:font-semibold  rounded-sm md:bg-transparent text-cyan-900 hover:text-white md:text-cyan-900 md:hover:text-cyan-600 md:hover:scale-110 hover:bg-cyan-700 md:hover:bg-transparent mb-1 md:m-0 md:p-0 border-b border-white md:border-0"
+            aria-current="page">Cart</a>
+        </li>
+        <li>
+          <a routerLinkActive="active-link" routerLink="/products"
+            class="block py-2 px-3 lg:text-lg lg:font-semibold  rounded-sm md:bg-transparent text-cyan-900 hover:text-white md:text-cyan-900 md:hover:text-cyan-600 md:hover:scale-110 hover:bg-cyan-700 md:hover:bg-transparent mb-1 md:m-0 md:p-0 border-b border-white md:border-0"
+            aria-current="page">Products</a>
+        </li>
+        <li>
+          <a routerLinkActive="active-link" routerLink="/categories"
+            class="block py-2 px-3 lg:text-lg lg:font-semibold  rounded-sm md:bg-transparent text-cyan-900 hover:text-white md:text-cyan-900 md:hover:text-cyan-600 md:hover:scale-110 hover:bg-cyan-700 md:hover:bg-transparent mb-1 md:m-0 md:p-0 border-b border-white md:border-0"
+            aria-current="page">Categories</a>
+        </li>
+        <li>
+          <a routerLinkActive="active-link" routerLink="/brands"
+            class="block py-2 px-3 lg:text-lg lg:font-semibold  rounded-sm md:bg-transparent text-cyan-900 hover:text-white md:text-cyan-900 md:hover:text-cyan-600 md:hover:scale-110 hover:bg-cyan-700 md:hover:bg-transparent mb-1 md:m-0 md:p-0"
+            aria-current="page">Brands</a>
+        </li>
+      </ul>
+
+      }
+      @else {
+      <ul
+        class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-gray-200 md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0">
+        <li>
+          <a routerLinkActive="active-link" routerLink="/login"
+            class="block py-2 px-3 lg:text-lg lg:font-semibold  rounded-sm md:bg-transparent text-cyan-900 hover:text-white md:text-cyan-900 md:hover:text-cyan-600 md:hover:scale-110 hover:bg-cyan-700 md:hover:bg-transparent mb-1 md:m-0 md:p-0 border-b border-white md:border-0"
+            aria-current="page">Login</a>
+        </li>
+        <li>
+          <a routerLinkActive="active-link" routerLink="/register"
+            class="block py-2 px-3 lg:text-lg lg:font-semibold  rounded-sm md:bg-transparent text-cyan-900 hover:text-white md:text-cyan-900 md:hover:text-cyan-600 md:hover:scale-110 hover:bg-cyan-700 md:hover:bg-transparent mb-1 md:m-0 md:p-0 border-b border-white md:border-0"
+            aria-current="page">Register</a>
+        </li>
+      </ul>
+      }
+
+    </div>
+
+
+
+
+  </div>
+</nav>

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+
+
+.active-link {
+  @apply text-white bg-cyan-700 md:text-cyan-600 md:bg-transparent md:scale-110;
+}
+
+@layer components {
+  .btn {
+    @apply py-[2px] bg-cyan-600 rounded-full text-white border-2 cursor-pointer border-transparent hover:bg-white hover:text-cyan-600 hover:border-cyan-600 transition-all duration-300;
+  }
+
+  .btn-text {
+    @apply inline-block transition-all duration-300;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: .75rem;
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+  background-color: transparent;
+}

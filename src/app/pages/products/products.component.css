@@ -1,0 +1,14 @@
+
+  .my-pagination ::ng-deep .ngx-pagination .current {
+    background-color: #0891B2;
+    border-radius: 50%;
+  }
+
+
+  #page_id ::ng-deep > pagination-template > nav > ul > li:is(:nth-child(3), :nth-child(4)) > a > span:nth-child(2) {
+    color: #164E63;
+  }
+  
+  .my-pagination ::ng-deep .ngx-pagination :is(.pagination-previous, .pagination-next) a {
+    color: #164E63;
+  }

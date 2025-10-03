@@ -1,0 +1,56 @@
+<section class="max-w-screen-xl mx-auto px-4 my-5 min-h-[83vh] flex items-center justify-center flex-col">
+
+  <form (ngSubmit)="submitForm()" [formGroup]="logForm" class="ctr-one w-full sm:w-11/12 md:w-9/12 lg:w-6/12">
+
+    <app-input [control]="logForm.get('email')" [type]="'email'" [id]="'email'" [label]="'Email'"></app-input>
+
+    <app-input [control]="logForm.get('password')" [id]="'password'" [type]="'password'"
+      [label]="'Password'"></app-input>
+
+
+    <button class="btn block mx-auto w-8/12 sm:w-6/12  group py-2 mt-8">
+      <p class="btn-text font-semibold group-hover:scale-110">Login
+      </p>
+    </button>
+
+    <a class="text-cyan-900 text-center underline underline-offset-5 underline-cyan-900 font-semibold block mx-auto mt-4" routerLink="/forget">Forgot Password ?</a>
+
+
+
+    @if (spin) {
+    <div class="flex justify-center mt-3">
+      <span class="loader"></span>
+    </div>
+    }
+
+    @if (errMsg && submit) {
+    <div class="flex justify-center items-center p-4 my-4 text-red-800 rounded-lg bg-red-50" role="alert">
+      <svg class="shrink-0 inline w-5 h-5 me-3 mt-[1px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+      </svg>
+      <div>
+        {{errMsg}}
+      </div>
+    </div>
+    }
+
+    @if (succMsg) {
+    <div class="flex justify-center items-center p-4 my-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
+      <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+      </svg>
+      <span class="sr-only">Info</span>
+      <div>
+        {{succMsg}}
+      </div>
+    </div>
+    }
+
+
+  </form>
+
+</section>

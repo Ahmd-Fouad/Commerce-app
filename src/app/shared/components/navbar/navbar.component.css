@@ -1,0 +1,3 @@
+.active-link {
+  @apply text-white bg-cyan-700 md:text-cyan-600 md:bg-transparent md:scale-110;
+}

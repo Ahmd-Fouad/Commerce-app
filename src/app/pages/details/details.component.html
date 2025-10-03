@@ -1,0 +1,30 @@
+<section class="max-w-screen-xl mx-auto px-4 mt-5 min-h-[82vh]">
+  <h1 class="bg-white text-3xl font-bold italic text-cyan-900 mb-3">Product Details</h1>
+  <div class="grid grid-cols-12 gap-5">
+    <div class="img col-span-12 md:col-span-5 lg:col-span-4">
+
+      <owl-carousel-o [options]="productOptions">
+        @for (image of productDetails.images; track productDetails._id) {
+        <ng-template carouselSlide [id]="productDetails._id">
+          <img [src]="image" class="w-full h-60 md:h-75 lg:h-90 bg-cover bg-center" [alt]="productDetails.title">
+        </ng-template>
+        }
+      </owl-carousel-o>
+
+    </div>
+    <div class="text col-span-12 md:col-span-7 lg:col-span-8 text-cyan-950">
+      <h2 class="text-2xl font-semibold text-cyan-900 mb-2 capitalize">{{productDetails.title}}</h2>
+      <h3 class="text-xl capitalize">{{productDetails.description}}</h3>
+      <h4 class="mb-3 font-semibold">{{productDetails.category.name}}</h4>
+      <div class="flex justify-between mb-2">
+        <span class="text-2xl font-bold text-cyan-900">{{productDetails.price | currency : "GBP"}}</span>
+        <span class="font-bold">{{productDetails.ratingsAverage}}
+          <i class="fa-solid fa-star"></i>
+        </span>
+      </div>
+      <button (click)="addProductToCart(productDetails.id)" class="btn w-full group py-1">
+        <p class="btn-text group-hover:scale-105 md:text-lg">Add To Cart</p>
+      </button>
+    </div>
+  </div>
+</section>

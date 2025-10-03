@@ -1,0 +1,48 @@
+<section class="max-w-screen-xl mx-auto p-4 min-h-[85vh]">
+  <h1 class="my-5 text-2xl lg:text-3xl font-semibold text-cyan-600">Cart Contains <span
+      class="text-3xl font-bold lg:text-4xl text-cyan-900">{{numOfCartItems}}</span> Items</h1>
+  <div class="grid md:grid-cols-12 gap-4 items-start">
+    <div class="md:col-span-8 bg-gray-100 p-3 shadow rounded-2xl text-cyan-900">
+      @if (numOfCartItems == 0) {
+      <h2 class="text-center text-3xl font-semibold text-cyan-600">Cart Is Empty.</h2>
+      }
+      @for (item of cartItems.products; track item.product._id) {
+      <div class="item mb-4 bg-white flex-col sm:flex-row flex items-center justify-between gap-4 rounded-2xl p-4">
+        <div class="flex items-stretch gap-5 flex-col sm:flex-row justify-center">
+          <img [src]="item.product.imageCover" class="sm:w-25 w-40 mx-auto" [alt]="item.product.title">
+          <div class="flex gap-4">
+            <div class="count text-center flex flex-col justify-center items-center sm:items-start gap-5">
+              <h3 [title]="item.product.title" class="text-2xl font-semibold line-clamp-1">{{item.product.title.split("
+                ", 3).join(" ")}}</h3>
+              <div class="flex items-center gap-8 bg-gray-100 px-3 py-1 rounded-full">
+                <i (click)="updateCartProduct(item.product._id, item.count - 1)"
+                  class="fas fa-minus hover:text-cyan-600 transition-colors duration-300 cursor-pointer"></i>
+                <span class="font-bold text-xl">{{item.count}}</span>
+                <i (click)="updateCartProduct(item.product._id, item.count + 1)"
+                  class="fas fa-plus hover:text-cyan-600 transition-colors duration-300 cursor-pointer"></i>
+                <i (click)="removeCartProduct(item.product._id)"
+                  class="fas  fa-trash-can text-xl cursor-pointer hover:text-cyan-600 transition-colors duration-300"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="font-bold text-xl">{{item.price * item.count | currency: 'GBP'}}</div>
+      </div>
+
+      }
+    </div>
+    <div
+      class="md:col-span-4 flex flex-col items-center justify-center bg-gray-100 shadow rounded-2xl p-3 text-cyan-900">
+      <h2 class="text-xl lg:text-2xl font-bold">Order Summary</h2>
+      <div class="flex w-full justify-between items-center text-xl my-5 font-semibold">
+        <span>Order Price</span>
+        <span class="font-bold">{{cartItems.totalCartPrice| currency: 'GBP'}}</span>
+      </div>
+      <button [disabled]="numOfCartItems == 0"
+        [routerLink]="['/checkout', cartItems._id]" class="btn w-10/12 group py-1">
+        <p (click)="showWarning()" class="btn-text group-hover:scale-105">Checkout</p>
+      </button>
+    </div>
+  </div>
+</section>
